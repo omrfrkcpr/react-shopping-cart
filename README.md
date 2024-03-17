@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+# React Shopping Cart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+The project will be a single-page web application where users will be able to add new products to their shopping lists, store these products on a mock API and update them in their shopping carts. A user-friendly interface will be designed using React and transition between pages will be provided using React Router.
 
-In the project directory, you can run:
+## Project Planning & Management
 
-### `npm start`
+**Epic User Story:** Developing a Shopping Cart Application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**User Stories:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Listing Products:**
 
-### `npm test`
+   - Task-1 = Create components to display existing products.
+   - Task-2 = Fetch and list products from the mock API.
+   - Task-2 = Style the product listing with CSS.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Adding Products**
 
-### `npm run build`
+   - Task-1 = Develop components for users to add new products.
+   - Task-2 = Implement functions to save new products to the mock API.
+   - Task-3 = Perform validation on the product addition form.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Shopping Cart Operations**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - Task-1 = Create components for users to view their shopping carts.
+   - Task-2 = Fetch and list products from the mock API for the shopping cart.
+   - Task-3 = Implement functions to update and delete product quantities in the cart.
+   - Task-4 = Design and style the cart page layout.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Interface Design and Enhancements**
 
-### `npm run eject`
+   - Task-1 = Design the overall user interface and improve usability.
+   - Task-2 = Make necessary corrections and enhancements based on user feedback.
+   - Task-3 = Ensure responsive design for mobile devices.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. **Creating About Page**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   - Task-1 = Design and implement the layout for the About page.
+   - Task-2 = Add relevant content such as information about yourself.
+   - Task-3 = Style the About page with CSS.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6. **Creating Main Page**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   - Task-1 = Set up the main landing page layout.
+   - Task-2 = Include navigation links to other pages.
+   - Task-3 = Design and implement any additional features on the main page.
 
-## Learn More
+7. **Implementing New Product Page**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   - Task-1 = Develop a form for users to input new product details.
+   - Task-2 = Add validation to the new product form.
+   - Task-3 = Implement functionality to submit new product data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+8. **Implementing Product List Page**
 
-### Code Splitting
+   - Task-1 = Display a list of available products fetched from the mock API.
+   - Task-2 = Add filtering or sorting options to the product list.
+   - Task-3 = Include buttons or links to view details or update products.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+9. **Implementing Update Product Page**
 
-### Analyzing the Bundle Size
+   - Task-1 = Create a form pre-filled with selected product details.
+   - Task-2 = Allow users to update product on shopping cart.
+   - Task-3 = Implement functionality to update product data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Additional Requirement:**
 
-### Making a Progressive Web App
+- The application should have a responsive design.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Project Skeleton
 
-### Advanced Configuration
+```
+Shopping Cart (folder)
+|
+├── public
+|     ├── index.html
+│     └── manifest.json
+├── src
+│   ├── assets
+│   ├── App.js
+|   |
+│   ├── components
+│   │    ├── CardTotal.jsx
+│   │    ├── Navbar.jsx
+│   │    ├── ProductCard.jsx
+│   │    └── ProductForm.jsx
+|   |
+│   ├── index.css
+│   ├── index.js
+|   |
+│   └── pages
+│        ├── About.jsx
+│        ├── Main.jsx
+│        ├── NewProduct.jsx
+│        ├── ProductList.jsx
+│        └── UpdateProduct.jsx
+|
+├── .gitignore
+├── LICENSE
+├── package-lock.json
+├── package.json
+├── react-shopping-cart.gif
+└── README.md
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
 
-### Deployment
+## Expected Outcome
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Objective
 
-### `npm run build` fails to minify
+Build a Shopping Cart App using ReactJS.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### At the end of the project, following topics are to be covered;
+
+- HTML & CSS & JS
+
+- ReactJS
+
+- React Router & Hooks
+
+- Mock API
+
+### At the end of the project, will be able to;
+
+- improve coding skills within HTML & CSS & JS & ReactJS.
+
+- use git commands (push, pull, commit, add etc.) and Github as Version Control System.
+
+## MockApi
+
+<a href="https://mockapi.io/" target="_blank">MockApi</a>
+
+## Contributing
+
+Your insights and contributions greatly enrich my projects! Whether you're bursting with fresh project concepts or have ideas to enhance existing ones, your input is invaluable. Feel free to open an issue to initiate a dialogue about your thoughts, or submit a pull request with your proposed modifications. Every contribution plays a vital role in my growth and improvement, so thank you for being an integral part of my community!
+
+## LICENSE
+
+This repository is licensed under the GNU General Public License v3.0 License. See the GPL licence file for details.
+
+**<p align="center">&#9786; Happy Coding &#9997;</p>**
