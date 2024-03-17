@@ -79,23 +79,33 @@ Shopping Cart (folder)
 │     └── manifest.json
 ├── src
 │   ├── assets
-│   ├── App.js
 |   |
 │   ├── components
-│   │    ├── CardTotal.jsx
-│   │    ├── Navbar.jsx
-│   │    ├── ProductCard.jsx
-│   │    └── ProductForm.jsx
+│   │       ├── cardTotal
+│   │       │        ├── CardTotal.css
+│   │       │        └── CardTotal.jsx
+│   │       ├── navbar
+│   │       │        ├── Navbar.css
+│   │       │        └── Navbar.jsx
+│   │       ├── productCard
+│   │       │        ├── ProductCard.css
+|   |       |        └── ProductCard.jsx
+│   │       └── productForm
+│   │                ├── ProductForm.css
+|   |                └── ProductForm.jsx
 |   |
+│   ├── pages
+│   |     ├── About.jsx
+│   |     ├── Main.jsx
+│   |     ├── NewProduct.jsx
+│   |     ├── ProductList.jsx
+│   |     └── UpdateProduct.jsx
+|   |
+│   ├── App.css
+│   ├── App.js
 │   ├── index.css
 │   ├── index.js
-|   |
-│   └── pages
-│        ├── About.jsx
-│        ├── Main.jsx
-│        ├── NewProduct.jsx
-│        ├── ProductList.jsx
-│        └── UpdateProduct.jsx
+│   └──reportWebVitals.js
 |
 ├── .gitignore
 ├── LICENSE
