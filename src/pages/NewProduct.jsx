@@ -60,10 +60,22 @@ const NewProduct = () => {
             />
           </div>
           <div className="mb-2">
-            <label htmlFor="product-quantity">Product Quantity</label>
+            <label htmlFor="product-discount">Product Discount Rate (%)</label>
             <br />
             <input
               className="w-100 rounded-2 border border-2 mt-2 ps-2"
+              type="number"
+              id="product-discount"
+              required
+              onFocus={handleInputFocus}
+              style={outlineStyle}
+            />
+          </div>
+          <div className="mb-2">
+            <label htmlFor="product-quantity">Product Quantity</label>
+            <br />
+            <input
+              className="w-100 rounded-2 border border-2 ps-2"
               type="number"
               id="product-quantity"
               required
@@ -71,7 +83,7 @@ const NewProduct = () => {
               style={outlineStyle}
             />
           </div>
-          <div className="position-relative mb-2">
+          <div className="position-relative mt-3 mb-2">
             <label htmlFor="product-image">Product Image</label>
             <br />
             <span
@@ -97,6 +109,18 @@ const NewProduct = () => {
               style={{ paddingLeft: "10rem", ...outlineStyle }}
               onFocus={handleInputFocus}
               required
+            />
+          </div>
+          <div className="mb-2 mt-3">
+            <label htmlFor="product-desc">Product Description</label>
+            <br />
+            <input
+              className="w-100 rounded-2 border border-2 mt-2 ps-2"
+              type="number"
+              id="product-desc"
+              required
+              onFocus={handleInputFocus}
+              style={outlineStyle}
             />
           </div>
           <div className="submit-btn text-center mt-5">
