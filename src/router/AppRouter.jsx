@@ -12,6 +12,7 @@ const AppRouter = () => {
       <Router>
         <NavbarComp />
         <Routes>
+          <Route exact path="/" element={<Main />} />
           <Route exact path="/home" element={<Main />} />
           <Route path="/new-product" element={<NewProduct />} />
           <Route path="/product-list" element={<ProductList />} />
