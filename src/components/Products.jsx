@@ -9,7 +9,7 @@ const Products = ({ products, handleMinus, handlePlus, handleRemove }) => {
         border: "1px solid lightgrey",
         borderRadius: "10px",
         height: "auto",
-        maxHeight: "80vh",
+        maxHeight: "70vh",
         overflowY: "auto",
         scrollbarWidth: "thin",
         scrollbarColor: "#888 #f1f1f1",
