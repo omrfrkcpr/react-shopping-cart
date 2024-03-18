@@ -1,6 +1,5 @@
 import React from "react";
 import { FaTrashCan } from "react-icons/fa6";
-
 import notFound from "../assets/notFound.jpeg";
 
 const Product = ({
@@ -22,6 +21,20 @@ const Product = ({
     } catch (error) {
       return false;
     }
+  };
+
+  // Calculate product price with damping rate
+  const calculatePriceWithDamping = (price, dampingRate) => {
+    return dampingRate !== 0 && dampingRate >= 0
+      ? (price - (price * dampingRate) / 100).toFixed(2)
+      : price.toFixed(2);
+  };
+
+  // Calculate product total
+  const calculateProductTotal = (price, dampingRate, amount) => {
+    return dampingRate !== 0 && dampingRate >= 0
+      ? ((price - (price * dampingRate) / 100) * amount).toFixed(2)
+      : (price * amount).toFixed(2);
   };
 
   return (
@@ -47,11 +60,7 @@ const Product = ({
         <h3 className="product-name">{name}</h3>
         <p className="product-prices">
           <span id="discount" className="p-1 fs-3">
-            {(dampingRate !== 0 && dampingRate >= 0
-              ? price - (price * dampingRate) / 100
-              : price
-            ).toFixed(2)}
-            €
+            {calculatePriceWithDamping(price, dampingRate)}€
           </span>
           <span
             id="price"
@@ -96,9 +105,7 @@ const Product = ({
         <p className="product-total mt-3">
           Product Total:{" "}
           <span id="product-total">
-            {dampingRate !== 0 && dampingRate >= 0
-              ? ((price - (price * dampingRate) / 100) * amount).toFixed(2)
-              : (price * amount).toFixed(2)}
+            {calculateProductTotal(price, dampingRate, amount)}
           </span>
         </p>
       </div>
