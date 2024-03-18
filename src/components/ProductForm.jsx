@@ -17,6 +17,7 @@ const ProductForm = () => {
   const [outlineStyle, setOutlineStyle] = useState({});
   const [showAlert, setShowAlert] = useState(false); // State to manage alert visibility
   const [errorAlert, setErrorAlert] = useState(false); // State to manage error alert visibility
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleInputFocus = () => {
@@ -36,6 +37,7 @@ const ProductForm = () => {
     if (errorAlert) {
       const timer = setTimeout(() => {
         setErrorAlert(false);
+        setErrors({});
       }, 3000);
       return () => clearTimeout(timer);
     }
@@ -46,9 +48,6 @@ const ProductForm = () => {
 
     // Destructure new product
     const { name, image, price, dampingRate, amount } = formData;
-
-    // Define an object for errors
-    const errors = {};
 
     // Check new product's name
     if (name.trim() === "") {
@@ -134,7 +133,9 @@ const ProductForm = () => {
           onClose={() => setErrorAlert(false)}
           dismissible
         >
-          An error occurred while adding the product. Please try again later.
+          {errorAlert && Object.keys(errors).length > 0 && (
+            <span>{errors[Object.keys(errors)[0]]}</span>
+          )}
         </Alert>
       )}
       {!errorAlert && showAlert && (
