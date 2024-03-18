@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Alert, Form } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import formBg from "../assets/new-product-bg.jpg";
 import axios from "axios";
@@ -16,11 +16,21 @@ const NewProduct = () => {
   });
 
   const [outlineStyle, setOutlineStyle] = useState({});
+  const [showAlert, setShowAlert] = useState(false); // State to manage alert visibility
   const navigate = useNavigate();
 
   const handleInputFocus = () => {
     setOutlineStyle({ outline: "none" });
   };
+
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+      }, 3000); // close alert after 3 seconds
+      return () => clearTimeout(timer); // clear timer at componentWillUnmount
+    }
+  }, [showAlert]);
 
   const formDivStyle = {
     backgroundImage: `url(${formBg})`,
@@ -40,6 +50,8 @@ const NewProduct = () => {
         formData
       );
       console.log("New product created:", response.data);
+      setShowAlert(true); // Show the alert when product is successfully added
+
       // Reset form data after successful submission
       setFormData({
         name: "",
@@ -75,6 +87,15 @@ const NewProduct = () => {
         >
           New Product
         </h3>
+        <Alert
+          variant="success"
+          show={showAlert} // Control visibility of the alert
+          onClose={() => setShowAlert(false)} // Close the alert when close button clicked
+          style={{ opacity: showAlert ? 1 : 0.5 }} // Set opacity based on showAlert state
+          dismissible
+        >
+          New product added successfully!
+        </Alert>
         <div className="form-body w-100">
           <div className="mb-2">
             <label className="fw-bold" htmlFor="product-name">
