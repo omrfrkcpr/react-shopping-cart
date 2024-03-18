@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import formBg from "../assets/new-product-bg.jpg";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const NewProduct = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const NewProduct = () => {
   });
 
   const [outlineStyle, setOutlineStyle] = useState({});
+  const navigate = useNavigate();
 
   const handleInputFocus = () => {
     setOutlineStyle({ outline: "none" });
@@ -175,6 +177,12 @@ const NewProduct = () => {
             >
               <FaCartPlus style={{ marginBottom: ".2rem" }} /> Save To New
               Product
+            </button>
+            <button
+              onClick={() => navigate("/product-list")}
+              className="btn bg-primary text-white ms-2"
+            >
+              See All Products
             </button>
           </div>
         </div>

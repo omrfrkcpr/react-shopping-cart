@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { FaTrashCan } from "react-icons/fa6";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { FaArrowCircleRight } from "react-icons/fa";
+import { FaArrowCircleLeft } from "react-icons/fa";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -41,7 +43,7 @@ const ProductList = () => {
     (acc, { price, dampingRate, amount }) => {
       const productTotal =
         dampingRate !== 0 && dampingRate >= 0
-          ? (((price * dampingRate) / 100) * amount).toFixed(2)
+          ? ((price - (price * dampingRate) / 100) * amount).toFixed(2)
           : (price * amount).toFixed(2);
       return {
         totalAmount: acc.totalAmount + parseFloat(productTotal),
@@ -89,19 +91,25 @@ const ProductList = () => {
         return product;
       });
 
-      const response = await axios.put(
-        `https://65f717fdb4f842e8088519c9.mockapi.io/products/${productID}`,
-        {
-          amount: updatedProducts.find((product) => product.id === productID)
-            .amount,
+      if (
+        updatedProducts.find((product) => product.id === productID).amount === 0
+      ) {
+        handleRemove(productID);
+      } else {
+        const response = await axios.put(
+          `https://65f717fdb4f842e8088519c9.mockapi.io/products/${productID}`,
+          {
+            amount: updatedProducts.find((product) => product.id === productID)
+              .amount,
+          }
+        );
+
+        if (response.status !== 200) {
+          throw new Error("Network response was not ok");
         }
-      );
 
-      if (response.status !== 200) {
-        throw new Error("Network response was not ok");
+        setProducts(updatedProducts);
       }
-
-      setProducts(updatedProducts);
     } catch (error) {
       console.log("There was a problem with the update operation", error);
     }
@@ -219,7 +227,10 @@ const ProductList = () => {
                       Product Total:{" "}
                       <span id="product-total">
                         {dampingRate !== 0 && dampingRate >= 0
-                          ? (((price * dampingRate) / 100) * amount).toFixed(2)
+                          ? (
+                              (price - (price * dampingRate) / 100) *
+                              amount
+                            ).toFixed(2)
                           : (price * amount).toFixed(2)}
                       </span>
                     </p>
@@ -248,30 +259,53 @@ const ProductList = () => {
             width: "400px",
           }}
         >
-          <p className="sub-total d-flex justify-content-between">
-            Subtotal &nbsp;<span id="sub-total">{totalAmount.toFixed(2)}€</span>
-          </p>
-          <p className="tax d-flex justify-content-between">
-            VAT (%19) &nbsp;<span id="tax">{totalTax.toFixed(2)}€</span>
-          </p>
-          <p className="shipping d-flex justify-content-between">
-            <span id="shipping-info">Shipping</span>&nbsp;
-            <span id="shipping-price">
-              {totalAmount === 0 ? "0€" : totalAmount > 200 ? "Free" : "8€"}
-            </span>
-          </p>
-          <p className="total d-flex justify-content-between">
-            Total (VAT included) &nbsp;
-            <span id="total">
-              {(totalAmount + totalTax + totalAmount === 0
-                ? 0
-                : totalAmount > 200
-                ? 0
-                : 8
-              ).toFixed(2)}
-              €
-            </span>
-          </p>
+          <div>
+            <p className="sub-total d-flex justify-content-between">
+              Subtotal &nbsp;
+              <span id="sub-total">{totalAmount.toFixed(2)}€</span>
+            </p>
+            <p className="tax d-flex justify-content-between">
+              VAT (%19) &nbsp;<span id="tax">{totalTax.toFixed(2)}€</span>
+            </p>
+            <p className="shipping d-flex justify-content-between">
+              <span id="shipping-info">Shipping</span>&nbsp;
+              <span id="shipping-price">
+                {totalAmount === 0 ? "0€" : totalAmount > 200 ? "Free" : "8€"}
+              </span>
+            </p>
+            <p className="total d-flex justify-content-between">
+              Total (VAT included) &nbsp;
+              <span id="total">
+                {(
+                  totalAmount +
+                  totalTax +
+                  (totalAmount === 0 ? 0 : totalAmount > 200 ? 0 : 8)
+                ).toFixed(2)}
+                €
+              </span>
+            </p>
+          </div>
+          <div className="text-center">
+            {products.length > 0 && (
+              <>
+                <button
+                  className="btn btn-success mt-5 me-3"
+                  onClick={() => navigate("/new-product")}
+                >
+                  <FaArrowCircleLeft />
+                  <span style={{ margin: "0.1rem 0.3rem 0.1rem" }}>
+                    Add More Products
+                  </span>
+                </button>
+                <button className="btn btn-warning mt-5">
+                  <FaArrowCircleRight />
+                  <span style={{ margin: "0.2rem 0.3rem 0.1rem" }}>
+                    Go Payment
+                  </span>
+                </button>
+              </>
+            )}
+          </div>
         </section>
       </div>
     </div>
