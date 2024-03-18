@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoLogoGithub } from "react-icons/io5";
 import { FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
 import aboutBg from "../assets/about-bg.jpg";
