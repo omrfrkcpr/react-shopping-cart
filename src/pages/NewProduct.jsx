@@ -24,7 +24,7 @@ const NewProduct = () => {
 
   const formDivStyle = {
     backgroundImage: `url(${formBg})`,
-    height: "calc(100vh - 93px)",
+    height: "calc(100vh + 3rem)",
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -66,12 +66,20 @@ const NewProduct = () => {
           backgroundImage:
             "linear-gradient(rgba(255, 218, 185, 0.5), rgba(255, 218, 185, 0.9))",
           width: "65%",
+          marginBottom: "1rem",
         }}
       >
-        <h3 className="w-100 text-center mb-4 mt-5">New Product</h3>
+        <h3
+          className="w-100 text-center mb-4 mt-5"
+          style={{ color: "purple", borderBottom: "1px solid purple" }}
+        >
+          New Product
+        </h3>
         <div className="form-body w-100">
           <div className="mb-2">
-            <label htmlFor="product-name">Product Name</label>
+            <label className="fw-bold" htmlFor="product-name">
+              Product Name
+            </label>
             <br />
             <input
               className="w-100 rounded-2 border border-2 mt-2 ps-2"
@@ -85,7 +93,9 @@ const NewProduct = () => {
             />
           </div>
           <div className="mb-2">
-            <label htmlFor="product-price">Product Price</label>
+            <label className="fw-bold" htmlFor="product-price">
+              Product Price
+            </label>
             <br />
             <input
               className="w-100 rounded-2 border border-2 mt-2 ps-2"
@@ -99,7 +109,9 @@ const NewProduct = () => {
             />
           </div>
           <div className="mb-2">
-            <label htmlFor="product-discount">Product Discount Rate (%)</label>
+            <label className="fw-bold" htmlFor="product-discount">
+              Product Discount Rate (%)
+            </label>
             <br />
             <input
               className="w-100 rounded-2 border border-2 mt-2 ps-2"
@@ -113,7 +125,9 @@ const NewProduct = () => {
             />
           </div>
           <div className="mb-2">
-            <label htmlFor="product-quantity">Product Quantity</label>
+            <label className="fw-bold" htmlFor="product-quantity">
+              Product Quantity
+            </label>
             <br />
             <input
               className="w-100 rounded-2 border border-2 mt-2 ps-2"
@@ -127,7 +141,9 @@ const NewProduct = () => {
             />
           </div>
           <div className="position-relative mt-3 mb-2">
-            <label htmlFor="product-image">Product Image</label>
+            <label className="fw-bold" htmlFor="product-image">
+              Product Image
+            </label>
             <br />
             <span
               className="position-absolute rounded-2"
@@ -135,7 +151,7 @@ const NewProduct = () => {
                 padding: ".06rem .3rem 1rem",
                 margin: ".55rem .06rem .06rem",
                 height: "28px",
-                backgroundColor: "lightgrey",
+                backgroundColor: "#f0f0f0",
                 border: "1px solid lightblack",
                 borderBottomRightRadius: "5px",
                 borderTopRightRadius: "5px",
@@ -157,7 +173,9 @@ const NewProduct = () => {
             />
           </div>
           <div className="mb-2 mt-3">
-            <label htmlFor="product-desc">Product Description</label>
+            <label className="fw-bold" htmlFor="product-desc">
+              Product Description
+            </label>
             <br />
             <input
               className="w-100 rounded-2 border border-2 mt-2 ps-2"
