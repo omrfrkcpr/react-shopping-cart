@@ -35,15 +35,56 @@ const ProductForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Destructure new product
+    const { name, image, price, dampingRate, amount } = formData;
+
+    // Define an object for errors
+    const errors = {};
+
+    // Check new product's name
+    if (name.trim() === "") {
+      errors.name = "Please enter a valid product name";
+    }
+
+    // Check new product's image
+    if (image.trim() === "") {
+      errors.image = "Please enter a valid product image (URL)";
+    }
+
+    // Check new product's price
+    if (isNaN(price) || price <= 0) {
+      errors.price = "Please enter a valid product price";
+    }
+
+    // Check new product's discount rate
+    if (isNaN(dampingRate) || dampingRate < 0 || dampingRate > 100) {
+      errors.dampingRate = "Please enter a valid discount rate (0-100)";
+    }
+
+    // Check new product's quantity
+    if (isNaN(amount) || amount <= 0) {
+      errors.amount = "Product quantity must be at least 1 or more";
+    }
+
+    // if any error exists, then alert
+    if (Object.keys(errors).length > 0) {
+      for (let key in errors) {
+        alert(errors[key]);
+      }
+      return;
+    }
+
     try {
+      // POST new product to the MockAPI
       const response = await axios.post(
         "https://65f717fdb4f842e8088519c9.mockapi.io/products",
         formData
       );
       console.log("New product created:", response.data);
-      setShowAlert(true); // Show the alert when product is successfully added
+      setShowAlert(true); // Show notification if successfull
 
-      // Reset form data after successful submission
+      // Reset form values
       setFormData({
         name: "",
         image: "",
@@ -54,6 +95,9 @@ const ProductForm = () => {
       });
     } catch (error) {
       console.error("Error creating new product:", error);
+      alert(
+        "An error occurred while adding the product. Please try again later."
+      );
     }
   };
 
