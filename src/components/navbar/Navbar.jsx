@@ -1,28 +1,63 @@
 import React from "react";
 import "./Navbar.css";
-import { Container, Nav, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import logo from "../../assets/logo.png";
+import { Link, NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const NavbarComp = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary navbar-component">
+    <Navbar expand="lg" className="bg-body-tertiary navbar-component py-1">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+          <Nav className="ms-auto text-center">
+            <NavLink
+              to="/home"
+              className="nav-link fw-bold"
+              style={({ isActive }) => ({
+                color: isActive && "white",
+                marginRight: "1rem",
+                marginLeft: "auto",
+              })}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/new-product"
+              className="nav-link fw-bold"
+              style={({ isActive }) => ({
+                color: isActive && "white",
+                marginRight: "1rem",
+                marginLeft: "auto",
+              })}
+            >
+              New Product
+            </NavLink>
+            <NavLink
+              to="/product-list"
+              className="nav-link fw-bold"
+              style={({ isActive }) => ({
+                color: isActive && "white",
+                marginRight: "1rem",
+                marginLeft: "auto",
+              })}
+            >
+              Product List
+            </NavLink>
+            <NavLink
+              to="/about"
+              className="nav-link fw-bold"
+              style={({ isActive }) => ({
+                color: isActive && "white",
+                marginRight: "1rem",
+                marginLeft: "auto",
+              })}
+            >
+              About
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -30,4 +65,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarComp;

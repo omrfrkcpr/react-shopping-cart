@@ -4,18 +4,20 @@ import Main from "../pages/Main";
 import NewProduct from "../pages/NewProduct";
 import ProductList from "../pages/ProductList";
 import About from "../pages/About";
+import NavbarComp from "../components/navbar/Navbar";
 
 const AppRouter = () => {
   return (
     <div>
       <Router>
+        <NavbarComp />
         <Routes>
           {/* "/" (ana yol) tüm yollara dahil edilmiştir, bu nedenle onu
          "/" ile başlayan diğer yollardan ayırt etmek için exact anahtar kelimesine sahip olması gerekir .
          "/courses/:name" böyle bir yolda yani  :name belirtilen kısım bir değişkendir, mesela name=HTML gibi. bunun için : kullanılır
          
           */}
-          <Route exact path="/" element={<Main />} />
+          <Route exact path="/home" element={<Main />} />
           <Route path="/new-product" element={<NewProduct />} />
           <Route path="/product-list" element={<ProductList />} />
           <Route path="/about" element={<About />} />
