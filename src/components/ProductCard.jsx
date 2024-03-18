@@ -3,9 +3,11 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import Products from "./Products";
 import Summary from "./Summary";
+import loadingGif from "../assets/loading.gif";
 
 const ProductCard = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   // Get all data of products from MockAPI
@@ -18,6 +20,7 @@ const ProductCard = () => {
         throw new Error("Network response was not ok");
       }
       setProducts(response.data);
+      setLoading(false); // After fetching set loading to false
     } catch (error) {
       console.log("There was a problem with the fetch operation", error);
     }
@@ -129,30 +132,37 @@ const ProductCard = () => {
 
   return (
     <div className="d-flex justify-content-between container">
-      {products.length > 0 ? (
-        <Products
-          products={products}
-          handleMinus={handleMinus}
-          handlePlus={handlePlus}
-          handleRemove={handleRemove}
-        />
+      {loading ? ( // Eğer loading true ise, yükleme animasyonunu göster
+        <img src={loadingGif} alt="Loading..." />
       ) : (
-        <div>
-          <h3 className="mt-5 pt-3">No Products found!</h3>
-          <button
-            className="btn btn-success mt-3"
-            onClick={() => navigate("/new-product")}
-          >
-            Add New Product
-          </button>
-        </div>
+        // Loading false ise, ürünler ya da "No Products found!" göster
+        <>
+          {products.length > 0 ? (
+            <Products
+              products={products}
+              handleMinus={handleMinus}
+              handlePlus={handlePlus}
+              handleRemove={handleRemove}
+            />
+          ) : (
+            <div>
+              <h3 className="mt-5 pt-3">No Products found!</h3>
+              <button
+                className="btn btn-success mt-3"
+                onClick={() => navigate("/new-product")}
+              >
+                Add New Product
+              </button>
+            </div>
+          )}
+          <Summary
+            totalAmount={totalAmount}
+            totalTax={totalTax}
+            products={products}
+            navigate={navigate}
+          />
+        </>
       )}
-      <Summary
-        totalAmount={totalAmount}
-        totalTax={totalTax}
-        products={products}
-        navigate={navigate}
-      />
     </div>
   );
 };
