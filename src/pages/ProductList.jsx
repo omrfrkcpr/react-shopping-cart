@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { FaArrowCircleLeft } from "react-icons/fa";
+import notFound from "../assets/notFound.jpeg";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -138,6 +139,16 @@ const ProductList = () => {
     }
   };
 
+  // Check img validity
+  const isValidImageUrl = (image) => {
+    try {
+      new URL(image);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
   return (
     <div style={productListStyle}>
       <div className="d-flex justify-content-between container">
@@ -164,10 +175,12 @@ const ProductList = () => {
                 >
                   <div className="product-img">
                     <img
-                      src={image}
+                      src={isValidImageUrl(image) ? image : notFound}
                       alt={name}
                       style={{
-                        width: "200px",
+                        width: "180px",
+                        height: "180px",
+                        position: "cover",
                         border: "1px solid lightgrey",
                         borderRadius: "10px",
                         padding: ".5rem",
