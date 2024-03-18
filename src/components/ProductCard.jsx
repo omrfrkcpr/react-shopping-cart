@@ -8,6 +8,7 @@ import loadingGif from "../assets/loading.gif";
 const ProductCard = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 900);
   const navigate = useNavigate();
 
   // Get all data of products from MockAPI
@@ -28,6 +29,18 @@ const ProductCard = () => {
 
   useEffect(() => {
     axiosData();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 900);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   // Increase product amount both on screen and in database
@@ -131,11 +144,17 @@ const ProductCard = () => {
   );
 
   return (
-    <div className="d-flex justify-content-between container">
-      {loading ? ( // Eğer loading true ise, yükleme animasyonunu göster
+    <div
+      className={`d-flex container product-container ${
+        isSmallScreen
+          ? "flex-column align-items-center text-center"
+          : "flex-row justify-content-between"
+      }`}
+    >
+      {loading ? ( // If loading true, show loading gif
         <img src={loadingGif} alt="Loading..." />
       ) : (
-        // Loading false ise, ürünler ya da "No Products found!" göster
+        // If loading false, show products or "No Products found!"
         <>
           {products.length > 0 ? (
             <Products
