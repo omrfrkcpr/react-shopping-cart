@@ -13,7 +13,7 @@ const NavbarComp = () => {
       }}
     >
       <Container>
-        <Link to="/">
+        <Link to="/home">
           <img src={logo} alt="logo" />
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
