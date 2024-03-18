@@ -2,6 +2,16 @@ import React from "react";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 
 const Summary = ({ totalAmount, totalTax, products, navigate }) => {
+  const renderLine = (label, value) => (
+    <p
+      className="summary-line d-flex justify-content-between"
+      style={{ borderBottom: "1px solid lightgrey" }}
+    >
+      {label} &nbsp;
+      <span>{value}</span>
+    </p>
+  );
+
   return (
     <section
       className="summary mt-5 bg-white"
@@ -9,34 +19,24 @@ const Summary = ({ totalAmount, totalTax, products, navigate }) => {
         borderRadius: "10px",
         padding: "1rem",
         height: "200px",
-        width: "400px",
+        width: "380px",
       }}
     >
       <div>
-        <p className="sub-total d-flex justify-content-between">
-          Subtotal &nbsp;
-          <span id="sub-total">{totalAmount.toFixed(2)}€</span>
-        </p>
-        <p className="tax d-flex justify-content-between">
-          VAT (%19) &nbsp;<span id="tax">{totalTax.toFixed(2)}€</span>
-        </p>
-        <p className="shipping d-flex justify-content-between">
-          <span id="shipping-info">Shipping</span>&nbsp;
-          <span id="shipping-price">
-            {totalAmount === 0 ? "0€" : totalAmount > 200 ? "Free" : "8€"}
-          </span>
-        </p>
-        <p className="total d-flex justify-content-between">
-          Total (VAT included) &nbsp;
-          <span id="total">
-            {(
-              totalAmount +
-              totalTax +
-              (totalAmount === 0 ? 0 : totalAmount > 200 ? 0 : 8)
-            ).toFixed(2)}
-            €
-          </span>
-        </p>
+        {renderLine("Subtotal", `${totalAmount.toFixed(2)}€`)}
+        {renderLine("VAT (%19)", `${totalTax.toFixed(2)}€`)}
+        {renderLine(
+          "Shipping",
+          totalAmount === 0 ? "0€" : totalAmount > 200 ? "Free" : "8€"
+        )}
+        {renderLine(
+          "Total (VAT included)",
+          `${(
+            totalAmount +
+            totalTax +
+            (totalAmount === 0 ? 0 : totalAmount > 200 ? 0 : 8)
+          ).toFixed(2)}€`
+        )}
       </div>
       <div className="text-center">
         {products.length > 0 && (

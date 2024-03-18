@@ -10,7 +10,9 @@ const Products = ({ products, handleMinus, handlePlus, handleRemove }) => {
         borderRadius: "10px",
         height: "auto",
         maxHeight: "80vh",
-        overflow: "auto",
+        overflowY: "auto",
+        scrollbarWidth: "thin",
+        scrollbarColor: "#888 #f1f1f1",
         width: "55%",
       }}
     >
