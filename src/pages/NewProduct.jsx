@@ -61,10 +61,11 @@ const NewProduct = () => {
   return (
     <div style={formDivStyle}>
       <Form
-        className="d-flex flex-column justify-content-center align-items-center w-50 m-auto p-4"
+        className="d-flex flex-column justify-content-center align-items-center m-auto p-4"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255, 218, 185, 0.5), rgba(255, 218, 185, 0.7))",
+            "linear-gradient(rgba(255, 218, 185, 0.5), rgba(255, 218, 185, 0.9))",
+          width: "65%",
         }}
       >
         <h3 className="w-100 text-center mb-4 mt-5">New Product</h3>
@@ -172,7 +173,7 @@ const NewProduct = () => {
           <div className="submit-btn text-center mt-5">
             <button
               type="submit"
-              className="btn bg-success text-white"
+              className="btn bg-success text-white mt-1"
               onClick={handleSubmit}
             >
               <FaCartPlus style={{ marginBottom: ".2rem" }} /> Save To New
@@ -180,7 +181,7 @@ const NewProduct = () => {
             </button>
             <button
               onClick={() => navigate("/product-list")}
-              className="btn bg-primary text-white ms-2"
+              className="btn bg-primary text-white ms-2 mt-1"
             >
               See All Products
             </button>

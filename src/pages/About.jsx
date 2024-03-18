@@ -17,48 +17,39 @@ const About = () => {
   };
 
   return (
-    <div style={aboutDivStyle} className="pt-5 pb-4">
-      <div className="w-75 m-auto bg-white p-3">
+    <div
+      style={{ ...aboutDivStyle, paddingBottom: "2.05rem" }}
+      className="pt-4"
+    >
+      <div
+        className="about-container m-auto bg-white p-3"
+        style={{ maxHeight: "80vh", overflow: "auto", width: "95%" }}
+      >
         <div className="about-info">
-          <h3 className="text-center mt-4 text-danger fs-1">
+          <h3 className="text-center mt-2 text-danger fs-3">
             About Our Shopping Mall
           </h3>
-          <h5 className="mt-3 p-1 text-center">
+          <h5 className="mt-3  text-center">
             Welcome to Shopping Mall, your premier destination for shopping,
-            dining, and entertainment! Here's a brief history of our mall:
+            dining, and entertainment!
           </h5>
-          <h6 className="mt-4 p-1">History</h6>
-          <p className=" p-1">
+          <h6 className="mt-4 ">History</h6>
+          <p>
             Shopping Mall opened its doors to the public in 2005, with the
             vision of providing a one-stop destination for all shopping needs.
             Since then, we have been a cornerstone of the community, offering a
             diverse range of retail outlets, restaurants, and leisure
             facilities.
           </p>
-          <h6 className="mt-1 p-1">Growth and Expansion</h6>
-          <p className=" p-1">
-            Over the years, Shopping Mall has undergone several expansions and
-            renovations to meet the evolving needs of our customers. What
-            started as a modest shopping center has now transformed into a
-            sprawling complex, featuring hundreds of stores and amenities.
-          </p>
-          <h6 className="mt-1 p-1">Our Mission</h6>
-          <p className=" p-1">
+          <h6 className="mt-1">Our Mission</h6>
+          <p>
             At Shopping Mall, our mission is to provide an unparalleled shopping
             experience that delights and inspires our visitors. We are committed
             to offering the latest trends, exceptional customer service, and a
             vibrant atmosphere that makes every visit memorable.
           </p>
-          <h6 className="mt-1 p-1">Community Engagement</h6>
-          <p className=" p-1">
-            We take pride in our strong ties to the local community. Shopping
-            Mall regularly hosts events, fundraisers, and cultural celebrations
-            to bring people together and support worthy causes. We believe in
-            giving back and making a positive impact on the lives of those
-            around us.
-          </p>
-          <h6 className="mt-1 p-1">Future Vision</h6>
-          <p className=" p-1">
+          <h6 className="mt-1">Future Vision</h6>
+          <p>
             As we look to the future, Shopping Mall remains dedicated to
             innovation and excellence. We are constantly exploring new ways to
             enhance the shopping experience, embrace sustainability practices,
@@ -68,12 +59,12 @@ const About = () => {
           </p>
         </div>
         <ul
-          className="about-socials list-unstyled d-flex justify-content-between mx-auto mt-5"
-          style={{ width: "35%" }}
+          className="about-socials list-unstyled d-flex justify-content-between m-auto mt-4"
+          style={{ width: "80%", maxWidth: "300px" }}
         >
           <li>
             <a href="https://github.com/omrfrkcpr" className="text-black">
-              <IoLogoGithub style={{ fontSize: "50px", cursor: "pointer" }} />
+              <IoLogoGithub style={{ fontSize: "3rem", cursor: "pointer" }} />
             </a>
           </li>
           <li>
@@ -81,28 +72,28 @@ const About = () => {
               href="https://www.linkedin.com/in/omrfrkcpr/"
               style={{ color: "#0A66C2" }}
             >
-              <FaLinkedin style={{ fontSize: "50px", cursor: "pointer" }} />
+              <FaLinkedin style={{ fontSize: "3rem", cursor: "pointer" }} />
             </a>
           </li>
           <li>
             <a href="#google">
-              <FcGoogle style={{ fontSize: "50px", cursor: "pointer" }} />
+              <FcGoogle style={{ fontSize: "3rem", cursor: "pointer" }} />
             </a>
           </li>
           <li>
             <a href="#facebook" style={{ color: "#0866ff" }}>
-              <FaFacebook style={{ fontSize: "50px", cursor: "pointer" }} />
+              <FaFacebook style={{ fontSize: "3rem", cursor: "pointer" }} />
             </a>
           </li>
           <li>
             <a href="#instagram" style={{ color: "#F6753F" }}>
               <FaInstagramSquare
-                style={{ fontSize: "50px", cursor: "pointer" }}
+                style={{ fontSize: "3rem", cursor: "pointer" }}
               />
             </a>
           </li>
         </ul>
-        <div className="about-buttons text-center mt-5">
+        <div className="about-buttons text-center mt-4">
           <button className="btn bg-warning me-3">Follow Us</button>
           <button className="btn bg-warning">Contact</button>
         </div>
