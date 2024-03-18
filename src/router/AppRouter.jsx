@@ -4,7 +4,7 @@ import Main from "../pages/Main";
 import NewProduct from "../pages/NewProduct";
 import ProductList from "../pages/ProductList";
 import About from "../pages/About";
-import NavbarComp from "../components/navbar/Navbar";
+import NavbarComp from "../components/Navbar";
 
 const AppRouter = () => {
   return (
