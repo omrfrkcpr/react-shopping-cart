@@ -75,8 +75,7 @@ The project will be a single-page web application where users will be able to ad
 Shopping Cart (folder)
 |
 ├── public
-|     ├── index.html
-│     └── manifest.json
+│     └── index.html
 ├── src
 │   ├── assets
 |   |

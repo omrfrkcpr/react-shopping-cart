@@ -1,13 +1,13 @@
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import Main from "./pages/Main";
+import AppRouter from "./router/AppRouter";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Main />
+    <div>
+      <AppRouter />
     </div>
   );
-}
+};
 
 export default App;
