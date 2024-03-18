@@ -80,18 +80,12 @@ Shopping Cart (folder)
 │   ├── assets
 |   |
 │   ├── components
-│   │       ├── cardTotal
-│   │       │        ├── CardTotal.css
-│   │       │        └── CardTotal.jsx
-│   │       ├── navbar
-│   │       │        ├── Navbar.css
-│   │       │        └── Navbar.jsx
-│   │       ├── productCard
-│   │       │        ├── ProductCard.css
-|   |       |        └── ProductCard.jsx
-│   │       └── productForm
-│   │                ├── ProductForm.css
-|   |                └── ProductForm.jsx
+│   │       ├── Navbar.jsx
+│   │       ├── Product.jsx
+│   │       ├── ProductCard.jsx
+│   │       ├── ProductForm.jsx
+│   │       ├── Products.jsx
+│   │       └── Summary.jsx
 |   |
 │   ├── pages
 │   |     ├── About.jsx
@@ -99,6 +93,9 @@ Shopping Cart (folder)
 │   |     ├── NewProduct.jsx
 │   |     ├── ProductList.jsx
 │   |     └── UpdateProduct.jsx
+|   |
+|   ├── router
+|   |     └── AppRouter.jsx
 |   |
 │   ├── App.css
 │   ├── App.js
