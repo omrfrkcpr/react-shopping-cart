@@ -1,12 +1,17 @@
 import React from "react";
-import "./Navbar.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 
 const NavbarComp = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary navbar-component py-1">
+    <Navbar
+      expand="lg"
+      className="bg-body-tertiary navbar-component py-1"
+      style={{
+        background: "linear-gradient(to right, lightblue, rgb(47, 163, 202))",
+      }}
+    >
       <Container>
         <Link to="/">
           <img src={logo} alt="logo" />
