@@ -7,11 +7,13 @@ const Product = ({
   name,
   image,
   price,
+  index,
   dampingRate,
   amount,
   handleMinus,
   handlePlus,
   handleRemove,
+  containerWidth,
 }) => {
   // Check img validity
   const isValidImageUrl = (image) => {
@@ -42,13 +44,20 @@ const Product = ({
       className="product list-unstyled d-flex p-2 me-5 mt-3"
       style={{ borderBottom: "1px solid lightgrey" }}
     >
-      <div className="product-img">
+      <div
+        className={`product-index d-flex align-items-center justify-content-center ${
+          containerWidth >= "90%" ? "pe-3" : "pe-4"
+        }   ${containerWidth >= "90%" ? "fs-6" : "fs-4"}`}
+      >
+        <p>{index}</p>
+      </div>
+      <div className="product-img d-flex align-items-center justify-content-center">
         <img
           src={isValidImageUrl(image) ? image : notFound}
           alt={name}
           style={{
-            width: "180px",
-            height: "180px",
+            width: containerWidth >= "90%" ? "130px" : "180px",
+            height: containerWidth >= "90%" ? "130px" : "180px",
             position: "cover",
             border: "1px solid lightgrey",
             borderRadius: "10px",
@@ -56,16 +65,28 @@ const Product = ({
           }}
         />
       </div>
-      <div className="product-info ms-4 w-100">
-        <h3 className="product-name">{name}</h3>
+      <div className="product-info ms-4 d-flex flex-column align-items-start justify-content-center">
+        <h3
+          className="product-name"
+          style={{ fontSize: containerWidth >= "90%" ? "1rem" : "" }}
+        >
+          {name}
+        </h3>
         <p className="product-prices">
-          <span id="discount" className="p-1 fs-3">
+          <span
+            id="discount"
+            className="ps-0 p-1"
+            style={{ fontSize: containerWidth >= "90%" ? "1rem" : "1.5rem" }}
+          >
             {calculatePriceWithDamping(price, dampingRate)}€
           </span>
           <span
             id="price"
-            className="text-decoration-line-through p-1 fs-4"
-            style={{ backgroundColor: "yellow" }}
+            className="text-decoration-line-through p-1 "
+            style={{
+              backgroundColor: "yellow",
+              fontSize: containerWidth >= "90%" ? ".8rem" : "1.2rem",
+            }}
           >
             {price}€
           </span>
@@ -74,7 +95,9 @@ const Product = ({
           <div className="product-count border border-1 border-black py-1 px-2 rounded-1">
             <button
               id="minus"
-              className="minus border border-0 px-2"
+              className={`minus border border-0 ${
+                containerWidth >= "90%" ? "px-1" : "px-2"
+              } `}
               onClick={() => handleMinus(id)}
             >
               -
@@ -84,7 +107,9 @@ const Product = ({
             </span>
             <button
               id="plus"
-              className="plus border border-0 px-2"
+              className={`plus border border-0 ${
+                containerWidth >= "90%" ? "px-1" : "px-2"
+              } `}
               onClick={() => handlePlus(id)}
             >
               +

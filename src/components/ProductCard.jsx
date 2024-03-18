@@ -8,7 +8,7 @@ import loadingGif from "../assets/loading.gif";
 const ProductCard = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 900);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1200);
   const navigate = useNavigate();
 
   // Get all data of products from MockAPI
@@ -33,7 +33,7 @@ const ProductCard = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 900);
+      setIsSmallScreen(window.innerWidth <= 1200);
     };
 
     window.addEventListener("resize", handleResize);
@@ -145,10 +145,10 @@ const ProductCard = () => {
 
   return (
     <div
-      className={`d-flex container product-container ${
+      className={`d-flex product-container px-5 ${
         isSmallScreen
           ? "flex-column align-items-center text-center"
-          : "flex-row justify-content-between"
+          : "flex-row justify-content-around"
       }`}
     >
       {loading ? ( // If loading true, show loading gif
