@@ -5,6 +5,8 @@ import { FaCartPlus } from "react-icons/fa";
 import axios from "axios";
 
 const ProductForm = () => {
+  //TODO : if inputs empty then danger alert and dont add any product
+
   const [formData, setFormData] = useState({
     name: "",
     image: "",
