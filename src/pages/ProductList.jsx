@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard";
 const ProductList = () => {
   // Style productList component
   const productListStyle = {
-    background: "#d2905e",
+    background: "#ffebc4",
     height: "calc(100vh - 93px)",
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
