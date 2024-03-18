@@ -5,8 +5,6 @@ import { FaCartPlus } from "react-icons/fa";
 import axios from "axios";
 
 const ProductForm = () => {
-  //TODO : if inputs empty then danger alert and dont add any product
-
   const [formData, setFormData] = useState({
     name: "",
     image: "",
@@ -18,6 +16,7 @@ const ProductForm = () => {
 
   const [outlineStyle, setOutlineStyle] = useState({});
   const [showAlert, setShowAlert] = useState(false); // State to manage alert visibility
+  const [errorAlert, setErrorAlert] = useState(false); // State to manage error alert visibility
   const navigate = useNavigate();
 
   const handleInputFocus = () => {
@@ -32,6 +31,15 @@ const ProductForm = () => {
       return () => clearTimeout(timer); // clear timer at componentWillUnmount
     }
   }, [showAlert]);
+
+  useEffect(() => {
+    if (errorAlert) {
+      const timer = setTimeout(() => {
+        setErrorAlert(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorAlert]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,12 +75,10 @@ const ProductForm = () => {
       errors.amount = "Product quantity must be at least 1 or more";
     }
 
-    // if any error exists, then alert
+    // If any error exists, then show the first error using Alert component
     if (Object.keys(errors).length > 0) {
-      for (let key in errors) {
-        alert(errors[key]);
-      }
-      return;
+      setErrorAlert(true); // Set error alert visibility to true
+      return; // Return early from the function
     }
 
     try {
@@ -82,7 +88,7 @@ const ProductForm = () => {
         formData
       );
       console.log("New product created:", response.data);
-      setShowAlert(true); // Show notification if successfull
+      setShowAlert(true); // Show notification if successful
 
       // Reset form values
       setFormData({
@@ -95,9 +101,7 @@ const ProductForm = () => {
       });
     } catch (error) {
       console.error("Error creating new product:", error);
-      alert(
-        "An error occurred while adding the product. Please try again later."
-      );
+      setErrorAlert(true); // Show error alert if failed
     }
   };
 
@@ -105,8 +109,10 @@ const ProductForm = () => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
   };
+
   return (
     <Form
+      onSubmit={handleSubmit}
       className="d-flex flex-column justify-content-center align-items-center m-auto p-4"
       style={{
         backgroundImage:
@@ -121,15 +127,27 @@ const ProductForm = () => {
       >
         New Product
       </h3>
-      <Alert
-        variant="success"
-        show={showAlert} // Control visibility of the alert
-        onClose={() => setShowAlert(false)} // Close the alert when close button clicked
-        style={{ opacity: showAlert ? 1 : 0.5 }} // Set opacity based on showAlert state
-        dismissible
-      >
-        New product added successfully!
-      </Alert>
+      {errorAlert && (
+        <Alert
+          variant="danger"
+          show={errorAlert}
+          onClose={() => setErrorAlert(false)}
+          dismissible
+        >
+          An error occurred while adding the product. Please try again later.
+        </Alert>
+      )}
+      {!errorAlert && showAlert && (
+        <Alert
+          variant="success"
+          show={showAlert} // Control visibility of the alert
+          onClose={() => setShowAlert(false)} // Close the alert when close button clicked
+          style={{ opacity: showAlert ? 1 : 0.5 }} // Set opacity based on showAlert state
+          dismissible
+        >
+          New product added successfully!
+        </Alert>
+      )}
       <div className="form-body w-100">
         <div className="mb-2">
           <label className="fw-bold" htmlFor="product-name">
@@ -244,11 +262,7 @@ const ProductForm = () => {
           />
         </div>
         <div className="submit-btn text-center mt-5">
-          <button
-            type="submit"
-            className="btn bg-success text-white mt-1"
-            onClick={handleSubmit}
-          >
+          <button type="submit" className="btn bg-success text-white mt-1">
             <FaCartPlus style={{ marginBottom: ".2rem" }} /> Save To New Product
           </button>
           <button
