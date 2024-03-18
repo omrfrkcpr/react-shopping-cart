@@ -162,6 +162,7 @@ const ProductCard = () => {
               handleMinus={handleMinus}
               handlePlus={handlePlus}
               handleRemove={handleRemove}
+              isSmallScreen={isSmallScreen}
             />
           ) : (
             <div>

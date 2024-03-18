@@ -1,7 +1,13 @@
 import React from "react";
 import Product from "./Product";
 
-const Products = ({ products, handleMinus, handlePlus, handleRemove }) => {
+const Products = ({
+  products,
+  handleMinus,
+  handlePlus,
+  handleRemove,
+  isSmallScreen,
+}) => {
   return (
     <ul
       className="products-section mt-5 bg-white"
@@ -13,7 +19,8 @@ const Products = ({ products, handleMinus, handlePlus, handleRemove }) => {
         overflowY: "auto",
         scrollbarWidth: "thin",
         scrollbarColor: "#888 #f1f1f1",
-        width: "55%",
+        width: isSmallScreen ? "90%" : "55%",
+        textAlign: "left",
       }}
     >
       {products

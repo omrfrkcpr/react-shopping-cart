@@ -40,9 +40,9 @@ const Summary = ({ totalAmount, totalTax, products, navigate }) => {
       </div>
       <div className="text-center">
         {products.length > 0 && (
-          <>
+          <div style={{ marginTop: "5rem" }}>
             <button
-              className="btn btn-success mt-5 me-3"
+              className="btn btn-success me-3"
               onClick={() => navigate("/new-product")}
             >
               <FaArrowCircleLeft />
@@ -50,11 +50,11 @@ const Summary = ({ totalAmount, totalTax, products, navigate }) => {
                 Add More Products
               </span>
             </button>
-            <button className="btn btn-warning mt-5">
+            <button className="btn btn-warning">
               <FaArrowCircleRight />
               <span style={{ margin: "0.2rem 0.3rem 0.1rem" }}>Go Payment</span>
             </button>
-          </>
+          </div>
         )}
       </div>
     </section>
