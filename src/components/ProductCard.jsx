@@ -137,10 +137,10 @@ const ProductCard = () => {
 
   return (
     <div
-      className={`d-flex product-container px-5 ${
+      className={`d-flex product-container${
         isSmallScreen
-          ? "flex-column align-items-center text-center"
-          : "flex-row justify-content-around"
+          ? "flex-column justify-content-center align-items-center flex-wrap text-center px-3"
+          : "flex-row justify-content-around px-5"
       }`}
     >
       {loading ? ( // If loading true, show loading gif

@@ -7,12 +7,14 @@ const Products = ({ products, handleMinus, handlePlus, handleRemove }) => {
   useEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth;
-      if (windowWidth > 1600) {
+      if (windowWidth > 2200) {
+        setContainerWidth("25%");
+      } else if (windowWidth > 1600 && windowWidth < 2200) {
         setContainerWidth("30%");
       } else if (windowWidth > 1200 && windowWidth < 1600) {
-        setContainerWidth("45%");
+        setContainerWidth("50%");
       } else if (windowWidth < 1200 && windowWidth > 800) {
-        setContainerWidth("60%");
+        setContainerWidth("68%");
       } else if (windowWidth < 800 && windowWidth > 500) {
         setContainerWidth("90%");
       } else {
@@ -34,7 +36,7 @@ const Products = ({ products, handleMinus, handlePlus, handleRemove }) => {
         border: "1px solid lightgrey",
         borderRadius: "10px",
         height: "auto",
-        maxHeight: "70vh",
+        maxHeight: "60vh",
         overflowY: "auto",
         scrollbarWidth: "thin",
         scrollbarColor: "#888 #f1f1f1",
@@ -42,12 +44,12 @@ const Products = ({ products, handleMinus, handlePlus, handleRemove }) => {
         textAlign: "left",
       }}
     >
-      {products.map(({ id, ...product }, index) => (
+      {products.map((product, index) => (
         <Product
-          key={id}
-          id={id}
+          key={product.id}
+          id={product.id}
           index={index + 1}
-          {...product}
+          product={product}
           handleMinus={handleMinus}
           handlePlus={handlePlus}
           handleRemove={handleRemove}

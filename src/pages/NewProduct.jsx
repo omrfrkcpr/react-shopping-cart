@@ -15,7 +15,7 @@ const NewProduct = () => {
 
   return (
     <div style={formDivStyle}>
-      <ProductForm />
+      <ProductForm mode="new" />
     </div>
   );
 };

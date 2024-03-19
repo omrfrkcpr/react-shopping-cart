@@ -5,7 +5,7 @@ const ProductList = () => {
   // Style productList component
   const productListStyle = {
     background: "#ffebc4",
-    height: "calc(100vh - 93px)",
+    height: "calc(100vh - 40px)",
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundSize: "cover",

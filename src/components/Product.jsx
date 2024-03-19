@@ -6,18 +6,16 @@ import { useNavigate } from "react-router-dom";
 
 const Product = ({
   id,
-  name,
-  image,
-  price,
   index,
-  dampingRate,
-  amount,
+  product,
   handleMinus,
   handlePlus,
   handleRemove,
   containerWidth,
 }) => {
   const navigate = useNavigate();
+  const { name, image, price, dampingRate, amount } = product;
+
   // Check img validity
   const isValidImageUrl = (image) => {
     try {
@@ -34,8 +32,6 @@ const Product = ({
     }
     return price;
   };
-
-  // Calculate product price with damping rate
   const calculatePriceWithDamping = (price, dampingRate) => {
     const discountedPrice = price - (price * dampingRate) / 100;
     return dampingRate !== 0 && dampingRate >= 0
@@ -43,7 +39,6 @@ const Product = ({
       : calculatePrice(price);
   };
 
-  // Calculate product total
   const calculateProductTotal = (price, dampingRate, amount) => {
     return dampingRate !== 0 && dampingRate >= 0
       ? ((price - (price * dampingRate) / 100) * amount).toFixed(2)
@@ -148,7 +143,7 @@ const Product = ({
               type="button"
               onClick={() =>
                 navigate("/update-product", {
-                  state: { id, name, image, price, index, dampingRate, amount },
+                  state: { product },
                 })
               }
             />
