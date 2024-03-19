@@ -5,6 +5,7 @@ import NewProduct from "../pages/NewProduct";
 import ProductList from "../pages/ProductList";
 import About from "../pages/About";
 import NavbarComp from "../components/Navbar";
+import UpdateProduct from "../pages/UpdateProduct";
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
           <Route exact path="/" element={<Main />} />
           <Route exact path="/home" element={<Main />} />
           <Route path="/new-product" element={<NewProduct />} />
+          <Route path="/update-product" element={<UpdateProduct />} />
           <Route path="/product-list" element={<ProductList />} />
           <Route path="/about" element={<About />} />
         </Routes>

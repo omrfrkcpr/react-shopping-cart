@@ -1,6 +1,8 @@
 import React from "react";
 import { FaTrashCan } from "react-icons/fa6";
 import notFound from "../assets/notFound.jpeg";
+import { FaEdit } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({
   id,
@@ -15,6 +17,7 @@ const Product = ({
   handleRemove,
   containerWidth,
 }) => {
+  const navigate = useNavigate();
   // Check img validity
   const isValidImageUrl = (image) => {
     try {
@@ -25,11 +28,19 @@ const Product = ({
     }
   };
 
+  const calculatePrice = (price) => {
+    if (!isNaN(price) && parseFloat(price) % 1 !== 0) {
+      return parseFloat(price).toFixed(2);
+    }
+    return price;
+  };
+
   // Calculate product price with damping rate
   const calculatePriceWithDamping = (price, dampingRate) => {
+    const discountedPrice = price - (price * dampingRate) / 100;
     return dampingRate !== 0 && dampingRate >= 0
-      ? (price - (price * dampingRate) / 100).toFixed(2)
-      : price.toFixed(2);
+      ? calculatePrice(discountedPrice)
+      : calculatePrice(price);
   };
 
   // Calculate product total
@@ -88,7 +99,7 @@ const Product = ({
               fontSize: containerWidth >= "90%" ? ".8rem" : "1.2rem",
             }}
           >
-            {price}€
+            {calculatePrice(price)}€
           </span>
         </p>
         <div className="product-settings d-flex">
@@ -96,7 +107,7 @@ const Product = ({
             <button
               id="minus"
               className={`minus border border-0 ${
-                containerWidth >= "90%" ? "px-1" : "px-2"
+                containerWidth >= "90%" ? "px-0" : "px-2"
               } `}
               onClick={() => handleMinus(id)}
             >
@@ -108,7 +119,7 @@ const Product = ({
             <button
               id="plus"
               className={`plus border border-0 ${
-                containerWidth >= "90%" ? "px-1" : "px-2"
+                containerWidth >= "90%" ? "px-0" : "px-2"
               } `}
               onClick={() => handlePlus(id)}
             >
@@ -126,11 +137,27 @@ const Product = ({
               onClick={() => handleRemove(id)}
             />
           </div>
+          <div className="product-edit">
+            <FaEdit
+              style={{
+                fontSize: "18px",
+                color: "orange",
+                marginLeft: ".6rem",
+                marginTop: ".5rem",
+              }}
+              type="button"
+              onClick={() =>
+                navigate("/update-product", {
+                  state: { id, name, image, price, index, dampingRate, amount },
+                })
+              }
+            />
+          </div>
         </div>
         <p className="product-total mt-3">
           Product Total:{" "}
           <span id="product-total">
-            {calculateProductTotal(price, dampingRate, amount)}
+            {calculateProductTotal(price, dampingRate, amount)}€
           </span>
         </p>
       </div>
