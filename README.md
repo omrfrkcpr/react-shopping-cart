@@ -6,6 +6,10 @@ https://reactjs-shopping-cart-app.netlify.app/
 
 The project will be a single-page web application where users will be able to add new products to their shopping lists, store these products on a mock API and update them in their shopping carts. A user-friendly interface will be designed using React and transition between pages will be provided using React Router.
 
+## Outcome
+
+![react-shopping-cart](https://github.com/omrfrkcpr/react-shopping-cart/assets/77440899/c1c266ce-05ee-4d86-ae30-95fa7911596a)
+
 ## Project Planning & Management
 
 **Epic User Story:** Developing a Shopping Cart Application
@@ -113,10 +117,6 @@ Shopping Cart (folder)
 └── README.md
 
 ```
-
-## Outcome
-
-![react-shopping-cart](https://github.com/omrfrkcpr/react-shopping-cart/assets/77440899/c1c266ce-05ee-4d86-ae30-95fa7911596a)
 
 ## Objective
 
