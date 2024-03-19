@@ -1,4 +1,3 @@
-// ProductForm.js
 import React, { useEffect, useState } from "react";
 import { Alert, Form } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
@@ -100,6 +99,10 @@ const ProductForm = ({ mode, product, setProduct, navigate }) => {
 
       if (!isEditMode) {
         setFormData(initialFormData); // Reset form data for new product
+      } else {
+        setTimeout(() => {
+          navigate("/product-list"); // navigate to product-list after updating
+        }, 2000);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -258,18 +261,15 @@ const ProductForm = ({ mode, product, setProduct, navigate }) => {
           />
         </div>
         <div className="submit-btn text-center mt-5">
-          <button type="submit" className="btn bg-success text-white mt-1">
+          <button
+            type="submit"
+            className={`btn ${
+              isEditMode ? "bg-success text-white" : "bg-warning text-black"
+            }  mt-1`}
+          >
             <FaCartPlus style={{ marginBottom: ".2rem" }} />{" "}
             {isEditMode ? "Save Updated Product" : "Save To New Product"}
           </button>
-          {!isEditMode && (
-            <button
-              onClick={() => navigate("/product-list")}
-              className="btn bg-primary text-white ms-2 mt-1"
-            >
-              See All Products
-            </button>
-          )}
         </div>
       </div>
     </Form>

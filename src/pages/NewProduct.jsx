@@ -11,6 +11,7 @@ const NewProduct = () => {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     padding: "2rem 0 2rem",
+    position: "relative",
   };
 
   return (
