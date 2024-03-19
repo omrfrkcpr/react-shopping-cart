@@ -1,4 +1,4 @@
-# React Shopping Cart
+# React Shopping Cart ©️
 
 💻 https://reactjs-shopping-cart-app.netlify.app/
 
@@ -18,58 +18,58 @@ The project will be a single-page web application where users will be able to ad
 
 1️⃣ **Listing Products:**
 
-   - 🥇 Create components to display existing products.
-   - 🥈 Fetch and list products from the mock API.
-   - 🥉 Style the product listing with CSS.
+- 🥇 Create components to display existing products.
+- 🥈 Fetch and list products from the mock API.
+- 🥉 Style the product listing with CSS.
 
 2️⃣ **Adding Products**
 
-   - 🥇 Develop components for users to add new products.
-   - 🥈 Implement functions to save new products to the mock API.
-   - 🥉 Perform validation on the product addition form.
+- 🥇 Develop components for users to add new products.
+- 🥈 Implement functions to save new products to the mock API.
+- 🥉 Perform validation on the product addition form.
 
 3️⃣ **Shopping Cart Operations**
 
-   - 🥇 Create components for users to view their shopping carts.
-   - 🥈 Fetch and list products from the mock API for the shopping cart.
-   - 🥉 Implement functions to update and delete product quantities in the cart.
-   - 🥉 Design and style the cart page layout.
+- 🥇 Create components for users to view their shopping carts.
+- 🥈 Fetch and list products from the mock API for the shopping cart.
+- 🥉 Implement functions to update and delete product quantities in the cart.
+- 🥉 Design and style the cart page layout.
 
 4️⃣ **Interface Design and Enhancements**
 
-   - 🥇 Design the overall user interface and improve usability.
-   - 🥈 Make necessary corrections and enhancements based on user feedback.
-   - 🥉 Ensure responsive design for mobile devices.
+- 🥇 Design the overall user interface and improve usability.
+- 🥈 Make necessary corrections and enhancements based on user feedback.
+- 🥉 Ensure responsive design for mobile devices.
 
 5️⃣ **Creating About Page**
 
-   - 🥇 Design and implement the layout for the About page.
-   - 🥈 Add relevant content such as information about yourself.
-   - 🥉 Style the About page with CSS.
+- 🥇 Design and implement the layout for the About page.
+- 🥈 Add relevant content such as information about yourself.
+- 🥉 Style the About page with CSS.
 
 6️⃣ **Creating Main Page**
 
-   - 🥇 Set up the main landing page layout.
-   - 🥈 Include navigation links to other pages.
-   - 🥉 Design and implement any additional features on the main page.
+- 🥇 Set up the main landing page layout.
+- 🥈 Include navigation links to other pages.
+- 🥉 Design and implement any additional features on the main page.
 
 7️⃣ **Implementing New Product Page**
 
-   - 🥇 Develop a form for users to input new product details.
-   - 🥈 Add validation to the new product form.
-   - 🥉 Implement functionality to submit new product data.
+- 🥇 Develop a form for users to input new product details.
+- 🥈 Add validation to the new product form.
+- 🥉 Implement functionality to submit new product data.
 
 8️⃣ **Implementing Product List Page**
 
-   - 🥇 Display a list of available products fetched from the mock API.
-   - 🥈 Add filtering or sorting options to the product list.
-   - 🥉 Include buttons or links to view details or update products.
+- 🥇 Display a list of available products fetched from the mock API.
+- 🥈 Add filtering or sorting options to the product list.
+- 🥉 Include buttons or links to view details or update products.
 
 9️⃣ **Implementing Update Product Page**
 
-   - 🥇 Create a form pre-filled with selected product details.
-   - 🥈 Allow users to update product on shopping cart.
-   - 🥉 Implement functionality to update product data.
+- 🥇 Create a form pre-filled with selected product details.
+- 🥈 Allow users to update product on shopping cart.
+- 🥉 Implement functionality to update product data.
 
 **Additional Requirement:** 💥
 
@@ -118,11 +118,11 @@ Shopping Cart (folder)
 
 ```
 
-## Objective 
+## Objective
 
 Build a Shopping Cart App using ReactJS.
 
-### At the end of the project, following topics are to be covered;
+### At the end of the project, following topics are to be covered; 🎯
 
 - HTML & CSS & JS
 
@@ -132,7 +132,7 @@ Build a Shopping Cart App using ReactJS.
 
 - Mock API
 
-### At the end of the project, will be able to; 
+### At the end of the project, will be able to; 💪
 
 - improve coding skills within HTML & CSS & JS & ReactJS.
 
@@ -148,6 +148,6 @@ Your insights and contributions greatly enrich my projects! Whether you're burst
 
 ## LICENSE 🪪
 
-This repository is licensed under the GNU General Public License v3.0 License. See the GPL licence file for details.
+This repository is licensed under the GNU General Public License v3.0 License. See the GPL licence file for details. For more information please visit [GNU License](https://www.gnu.org/licenses/gpl-3.0.html)
 
 **<p align="center">&#9786; Happy Coding &#9997;</p>**
