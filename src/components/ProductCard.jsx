@@ -11,12 +11,12 @@ const ProductCard = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1200);
   const navigate = useNavigate();
 
+  const BASE_URL = "https://65f717fdb4f842e8088519c9.mockapi.io/products";
+
   // Get all data of products from MockAPI
   const axiosData = async () => {
     try {
-      const response = await axios.get(
-        "https://65f717fdb4f842e8088519c9.mockapi.io/products"
-      );
+      const response = await axios.get(BASE_URL);
       if (response.status !== 200) {
         throw new Error("Network response was not ok");
       }
@@ -53,13 +53,10 @@ const ProductCard = () => {
         return product;
       });
 
-      const response = await axios.put(
-        `https://65f717fdb4f842e8088519c9.mockapi.io/products/${productID}`,
-        {
-          amount: updatedProducts.find((product) => product.id === productID)
-            .amount,
-        }
-      );
+      const response = await axios.put(`${BASE_URL}/${productID}`, {
+        amount: updatedProducts.find((product) => product.id === productID)
+          .amount,
+      });
 
       if (response.status !== 200) {
         throw new Error("Network response was not ok");
@@ -86,13 +83,10 @@ const ProductCard = () => {
       ) {
         handleRemove(productID);
       } else {
-        const response = await axios.put(
-          `https://65f717fdb4f842e8088519c9.mockapi.io/products/${productID}`,
-          {
-            amount: updatedProducts.find((product) => product.id === productID)
-              .amount,
-          }
-        );
+        const response = await axios.put(`${BASE_URL}/${productID}`, {
+          amount: updatedProducts.find((product) => product.id === productID)
+            .amount,
+        });
 
         if (response.status !== 200) {
           throw new Error("Network response was not ok");
@@ -109,9 +103,7 @@ const ProductCard = () => {
   const handleRemove = async (productID) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        const response = await axios.delete(
-          `https://65f717fdb4f842e8088519c9.mockapi.io/products/${productID}`
-        );
+        const response = await axios.delete(`${BASE_URL}/${productID}`);
 
         if (response.status !== 200) {
           throw new Error("Network response was not ok");
