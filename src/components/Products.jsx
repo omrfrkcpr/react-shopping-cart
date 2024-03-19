@@ -42,21 +42,18 @@ const Products = ({ products, handleMinus, handlePlus, handleRemove }) => {
         textAlign: "left",
       }}
     >
-      {products
-        .slice(0)
-        .reverse()
-        .map(({ id, ...product }, index) => (
-          <Product
-            key={id}
-            id={id}
-            index={products.length - index} // index numbers (not reversed like product)
-            {...product}
-            handleMinus={handleMinus}
-            handlePlus={handlePlus}
-            handleRemove={handleRemove}
-            containerWidth={containerWidth}
-          />
-        ))}
+      {products.map(({ id, ...product }, index) => (
+        <Product
+          key={id}
+          id={id}
+          index={index}
+          {...product}
+          handleMinus={handleMinus}
+          handlePlus={handlePlus}
+          handleRemove={handleRemove}
+          containerWidth={containerWidth}
+        />
+      ))}
     </ul>
   );
 };
