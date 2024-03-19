@@ -114,7 +114,7 @@ Shopping Cart (folder)
 
 ```
 
-## Expected Outcome
+## Outcome
 
 ![react-shopping-cart](https://github.com/omrfrkcpr/react-shopping-cart/assets/77440899/c1c266ce-05ee-4d86-ae30-95fa7911596a)
 
