@@ -14,13 +14,12 @@ const Summary = ({ totalAmount, totalTax, products, navigate }) => {
 
   return (
     <section
-      className="summary ms-4  mt-5 bg-white"
+      className="summary ms-4 mt-5 bg-white"
       style={{
         borderRadius: "10px",
         padding: "1rem",
         height: "200px",
         width: "380px",
-        verticalAlign: "top",
       }}
     >
       <div>
