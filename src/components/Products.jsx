@@ -46,7 +46,7 @@ const Products = ({ products, handleMinus, handlePlus, handleRemove }) => {
         <Product
           key={id}
           id={id}
-          index={index}
+          index={index + 1}
           {...product}
           handleMinus={handleMinus}
           handlePlus={handlePlus}
