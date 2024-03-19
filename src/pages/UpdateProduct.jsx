@@ -160,9 +160,10 @@ const UpdateProduct = () => {
         className="d-flex flex-column justify-content-center align-items-center m-auto p-4"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(239, 221, 86, 0.9), rgba(239, 221, 86, 0.3))",
+            "linear-gradient(rgba(239, 221, 86, 0.9), rgba(239, 221, 86, 0.9))",
           width: "65%",
           marginBottom: "1rem",
+          borderRadius: "10px",
         }}
       >
         <h3
