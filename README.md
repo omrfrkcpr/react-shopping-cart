@@ -28,7 +28,7 @@ The project will be a single-page web application where users will be able to ad
    - 🥈 Implement functions to save new products to the mock API.
    - 🥉 Perform validation on the product addition form.
 
-🥉 **Shopping Cart Operations**
+3️⃣ **Shopping Cart Operations**
 
    - 🥇 Create components for users to view their shopping carts.
    - 🥈 Fetch and list products from the mock API for the shopping cart.
