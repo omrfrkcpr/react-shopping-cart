@@ -1,6 +1,6 @@
 # React Shopping Cart
 
-https://reactjs-shopping-cart-app.netlify.app/
+![LiveGIF](https://github.com/omrfrkcpr/react-shopping-cart/assets/77440899/27403281-a10e-4959-86ef-0149ce647af1) https://reactjs-shopping-cart-app.netlify.app/
 
 ## Description
 
