@@ -89,13 +89,14 @@ const ProductForm = ({ mode, product, setProduct, navigate }) => {
       return;
     }
 
+    console.log(errors);
+
     try {
-      const response = isEditMode
+      isEditMode
         ? await axios.put(`${BASE_URL}/${product.id}`, formData)
         : await axios.post(BASE_URL, formData);
 
       setShowAlert(true);
-      setProduct(response.data);
 
       if (!isEditMode) {
         setFormData(initialFormData); // Reset form data for new product
@@ -106,7 +107,11 @@ const ProductForm = ({ mode, product, setProduct, navigate }) => {
       }
     } catch (error) {
       console.error("Error:", error);
-      setErrorAlert(true);
+      if (Object.keys(errors).length > 0) {
+        // Check if error object is not empty
+        setErrorAlert(true);
+      }
+      setShowAlert(false); // Don't show success alert if there's an error
     }
   };
 
